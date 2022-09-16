@@ -19,15 +19,12 @@ if response.status_code == 200:
         a = video.select_one('td.title > a > h3')
         if a is not None:
             rank = video.select_one('td.rank.rank.rank--ko > div.current').text
-            date = video.select_one('td.title > div').text
             title = a.text
             thumbnail = video.select_one('td.thumbnail > a > div > div')["data-background-image"]
             score = video.select_one('td.score > span').text
             channel = video.select_one('td.channel > a > span').text
-            print(rank, date, title, thumbnail, score, channel)
         doc = {
             'rank': rank,
-            'date' : date,
             'title' : title,
             'thumbnail' : thumbnail,
             'score' : score,
